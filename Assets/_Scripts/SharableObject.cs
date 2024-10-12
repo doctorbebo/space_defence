@@ -6,9 +6,14 @@ public class SharableObject : MonoBehaviour
 {
     public static Dictionary<int, Dictionary<Type, object>> shareables = new Dictionary<int, Dictionary<Type, object>>();
 
-    public static T Get<T>(int gameObjectId)
+    public static T Get<T>(int gameObjectId) where T : new()
     {
-        Dictionary<Type, object> shareable = shareables.ContainsKey(gameObjectId) ? shareables[gameObjectId] : new Dictionary<Type, object>();
+        if (!shareables.ContainsKey(gameObjectId))
+        {
+            shareables[gameObjectId] = new Dictionary<Type, object>();
+        }
+        
+        Dictionary<Type, object> shareable = shareables[gameObjectId];
         Type type = typeof(T);
         
         if (shareable.ContainsKey(type))
@@ -19,19 +24,5 @@ public class SharableObject : MonoBehaviour
         T newObj = Activator.CreateInstance<T>();
         shareable.Add(type, newObj);
         return newObj;
-    }
-
-    public static void Set<T>(int gameObjectId, T value)
-    {
-        Dictionary<Type, object> shareable = shareables.ContainsKey(gameObjectId) ? shareables[gameObjectId] : new Dictionary<Type, object>();
-        Type type = typeof(T);
-        if (shareable.ContainsKey(type))
-        {
-            shareable[type] = value;
-        }
-        else
-        {
-            shareable.Add(type, value);
-        }
     }
 }
