@@ -57,3 +57,34 @@ sysinfo.txt
 
 # Crashlytics generated file
 crashlytics-build.properties
+
+
+# Rider specific files
+.idea/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Windows specific files
+Thumbs.db
+Desktop.ini
+
+# macOS specific files
+.DS_Store
+
+# Linux specific files
+*~
+
+# Build results
+bin/
+obj/
+out/
+
+# JetBrains Rider caches
+.idea/.idea_modules/
+
+# ASP.NET Core files
+wwwroot/
