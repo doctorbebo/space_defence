@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Targeting
+namespace Ordnance
 {
     public class TargetLock: MonoBehaviour
     {

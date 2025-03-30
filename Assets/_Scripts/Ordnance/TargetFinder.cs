@@ -1,10 +1,9 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Targeting
+namespace Ordnance
 {
     internal class TargetFinder : MonoBehaviour, ITargetFinder
     {

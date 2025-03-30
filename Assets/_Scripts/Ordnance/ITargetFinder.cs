@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Targeting
+namespace Ordnance
 {
     public interface ITargetFinder
     {
