@@ -13,7 +13,7 @@ namespace Targeting
         [SerializeField] private float radius = 5;
         [SerializeField] private LayerMask include;
 
-        private Collider[] potentialTargets = new Collider[20];
+        private readonly Collider[] potentialTargets = new Collider[20];
 
         private void FixedUpdate()
         {
