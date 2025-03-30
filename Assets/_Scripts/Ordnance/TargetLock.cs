@@ -14,6 +14,7 @@ namespace Ordnance
         
         private ITargetFinder targetFinder;
         public bool targetLocked = false;
+        public Quaternion gunRotation;
         private void Awake()
         {
             targetFinder = GetComponent<ITargetFinder>();
@@ -38,6 +39,7 @@ namespace Ordnance
             rotation = Quaternion.Lerp(rotation, targetRotation, rotationSpeed * Time.deltaTime);
             transform.rotation = rotation;
             targetLocked = Quaternion.Angle(rotation, targetRotation) < accuracy;
+            gunRotation = rotation;
         }
     }
 }
