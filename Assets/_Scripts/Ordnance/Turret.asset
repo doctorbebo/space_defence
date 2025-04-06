@@ -12,3 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34ea8e56129143d0b2cd84b96d1f03a4, type: 3}
   m_Name: Turret
   m_EditorClassIdentifier: 
+  <Name>k__BackingField: Prototype Trurret
+  <Prefab>k__BackingField: {fileID: 0}
+  <Target>k__BackingField:
+    serializedVersion: 2
+    m_Bits: 64
+  <ProjectileSettings>k__BackingField: {fileID: 11400000, guid: 787443895466f4e5a9a674a6dde34002,
+    type: 2}
+  <FireRate>k__BackingField: 0.18
+  <Accuracy>k__BackingField: 1
+  <RotationSpeed>k__BackingField: 13.14
+  <Range>k__BackingField: 8

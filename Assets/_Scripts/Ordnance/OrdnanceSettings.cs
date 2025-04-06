@@ -11,6 +11,9 @@ namespace Ordnance
         [field: SerializeField]
         public GameObject Prefab { get; private set; }
         
+        [field: SerializeField]
+        public LayerMask Target { get; private set; }
+        
         [field: SerializeField] 
         public ProjectileSettings ProjectileSettings { get; private set; } = null;
         

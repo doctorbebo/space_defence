@@ -6,40 +6,28 @@ namespace Ordnance
 {
     public class Ordnance: MonoBehaviour
     {
-        public TargetLock targetLock;
-        public float fireRate;
+        [field: SerializeField]
+        public OrdnanceSettings OrdnanceSettings { get; private set; }
         
-        public GameObject projectile;
-        public float projectileLifeSpan = 10f;
+        public Transform TargetTransform { get; set; }
 
-        private float fireRateTimer;
+        private TargetingSystem targetingSystem;
+        private FireSystem fireSystem;
 
-        private void Start()
+        private void Awake()
         {
-            fireRateTimer = fireRate;
+            targetingSystem = new TargetingSystem(this);
+            fireSystem = new FireSystem(this);
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            if (fireRateTimer < 0)
-            {
-                if (targetLock.targetLocked)
-                {
-                    Fire();
-                    fireRateTimer = fireRate;
-                }
-            }
-            else
-            {
-                fireRateTimer -= Time.deltaTime;
-            }
+            targetingSystem.FixedUpdate();
+            fireSystem.FixedUpdate();
         }
-
-        private void Fire()
+        private void OnDrawGizmosSelected()
         {
-            GameObject proj = Instantiate(projectile, transform.position, targetLock.gunRotation, transform);
-            proj.SetActive(true);
-            Destroy(proj, projectileLifeSpan);
+            targetingSystem.OnDrawGizmosSelected();
         }
     }
 }
