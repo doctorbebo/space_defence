@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac015283e60c4b88b4bec49b257c1171, type: 3}
   m_Name: NewEntitySpawnerDetails
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  prefab: {fileID: 4987922051494194006, guid: 9ed5c2dbce3394312aef37caf5d02b4e, type: 3}

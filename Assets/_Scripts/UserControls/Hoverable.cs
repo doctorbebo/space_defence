@@ -18,7 +18,10 @@ public class Hoverable : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        meshRenderer.sharedMaterials = highlightMaterials;
+        if (enabled)
+        {
+            meshRenderer.sharedMaterials = highlightMaterials;
+        }
     }
 
     private void OnMouseExit()

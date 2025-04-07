@@ -1,27 +1,38 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ClickEventManager : MonoBehaviour, IClickable
+namespace UserControls
 {
-    public UnityEvent onLeftClick;
-    public UnityEvent onRightClick;
-
-    private void Start()
+    public class ClickEventManager : MonoBehaviour, IClickable
     {
-        onLeftClick.AddListener(() => { Debug.Log( $"{transform.parent.name} left click"); });
-        onRightClick.AddListener(() => { Debug.Log($"{transform.parent.name} right click"); });
-    }
+        public bool leftClickEnabled  = true;
+        public bool rightClickEnabled  = true;
+        public UnityEvent onLeftClick;
+        public UnityEvent onRightClick;
+        
+        private void Start()
+        {
+            onLeftClick.AddListener(() => { Debug.Log( $"{transform.parent.name} left click"); });
+            onRightClick.AddListener(() => { Debug.Log($"{transform.parent.name} right click"); });
+        }
 
-    public void OnLeftClick()
-    {
-        onLeftClick.Invoke();
-    }
+        public void OnLeftClick()
+        {
+            if (leftClickEnabled)
+            {
+                onLeftClick.Invoke();
+            }
+        }
     
-    public void OnRightClick()
-    {
-        onRightClick.Invoke();
+        public void OnRightClick()
+        {
+            if (rightClickEnabled)
+            {
+                onRightClick.Invoke();
+            }
+        }
+
+        public void SetLeftClickEnable(bool isEnabled) => leftClickEnabled = isEnabled;
+        public void SetRightClickEnable(bool isEnabled) => rightClickEnabled = isEnabled;
     }
 }
