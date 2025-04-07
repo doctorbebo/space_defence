@@ -83,6 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7994c74e60146f8bef091975c33906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftClickEnabled: 1
+  rightClickEnabled: 1
   onLeftClick:
     m_PersistentCalls:
       m_Calls:
@@ -98,7 +100,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 124723311805760881}
+      - m_Target: {fileID: 8125231410359122185}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -113,8 +115,6 @@ MonoBehaviour:
   onRightClick:
     m_PersistentCalls:
       m_Calls: []
-  leftClickEnabled: 1
-  rightClickEnabled: 1
 --- !u!114 &5731862375066921095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entitySpawnerDetails: {fileID: 11400000, guid: d16b4fdfd144c425f8525ec76b162331,
     type: 2}
-  entityParent: {fileID: 0}
+  entityParent: {fileID: 139888859282692369}
 --- !u!1 &8125231410359122185
 GameObject:
   m_ObjectHideFlags: 0

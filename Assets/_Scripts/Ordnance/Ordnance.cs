@@ -9,6 +9,9 @@ namespace Ordnance
         [field: SerializeField]
         public OrdnanceSettings OrdnanceSettings { get; private set; }
         
+        [field: SerializeField]
+        public Transform OrdnanceRotationTransform { get; private set; }
+        
         public Transform TargetTransform { get; set; }
 
         private TargetingSystem targetingSystem;

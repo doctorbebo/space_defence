@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <OrdnanceSettings>k__BackingField: {fileID: 11400000, guid: 88d9e9eaa5ac0475ea0437cd07d3d2ff,
     type: 2}
+  <OrdnanceRotationTransform>k__BackingField: {fileID: 643004956036479397}
 --- !u!1 &5681630241195609986
 GameObject:
   m_ObjectHideFlags: 0

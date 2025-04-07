@@ -15,7 +15,7 @@ namespace Ordnance
 
         public FireSystem(Ordnance ordnance)
         {
-            transform = ordnance.transform;
+            transform = ordnance.OrdnanceRotationTransform;
             settings = ordnance.OrdnanceSettings;
             getTarget = () => ordnance.TargetTransform;
         }

@@ -13,7 +13,7 @@ namespace Ordnance
         public TargetingSystem(Ordnance ordnance)
         {
             settings = ordnance.OrdnanceSettings;
-            transform = ordnance.transform;
+            transform = ordnance.OrdnanceRotationTransform;
             setTarget = (target) => ordnance.TargetTransform = target;
         }
 
