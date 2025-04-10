@@ -1,4 +1,3 @@
-using _Core;
 using UnityEngine;
 
 namespace EntitySpawner
@@ -9,5 +8,7 @@ namespace EntitySpawner
         [SerializeField]
         private GameObject prefab;
         public GameObject Prefab => prefab;
+        
+        public virtual Vector3 GetSpawnPoint() => Vector3.zero;
     }
 }

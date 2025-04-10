@@ -4,7 +4,7 @@ public class PropulsionSystem : MonoBehaviour
 {
     public float speed;
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         transform.Translate(Vector3.forward * (speed * Time.deltaTime));
     }

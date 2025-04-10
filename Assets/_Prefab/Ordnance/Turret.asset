@@ -19,7 +19,7 @@ MonoBehaviour:
     m_Bits: 64
   <ProjectileSettings>k__BackingField: {fileID: 11400000, guid: 787443895466f4e5a9a674a6dde34002,
     type: 2}
-  <FireRate>k__BackingField: 0.18
-  <Accuracy>k__BackingField: 1
+  <FireRate>k__BackingField: 1.6
+  <Accuracy>k__BackingField: 3
   <RotationSpeed>k__BackingField: 13.14
-  <Range>k__BackingField: 8
+  <Range>k__BackingField: 2.8

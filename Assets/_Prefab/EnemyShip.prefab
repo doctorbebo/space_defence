@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 6781135187087054827}
   - component: {fileID: 393206090615941454}
   - component: {fileID: 3442119847790301535}
+  - component: {fileID: -4843665844928581774}
   m_Layer: 0
-  m_Name: SpawnObject
+  m_Name: EnemyShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -132,7 +133,24 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-4843665844928581774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7627956480935442872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6e9949be4c4449891f90b69f7962b6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
+  target: {fileID: 3976641711542835432, guid: 3b223928fae5c46e795ac357321c09a5, type: 3}
+  lockX: 1
+  lockY: 0
+  lockZ: 1

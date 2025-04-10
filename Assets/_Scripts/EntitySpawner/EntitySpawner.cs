@@ -13,12 +13,8 @@ namespace EntitySpawner
 
         public void SpawnEntity()
         {
-            Instantiate(entitySpawnerDetails.Prefab, entityParent);
-        }
-        
-        public void SpawnEntity(Transform transform)
-        {
-            GameObject entity = Instantiate(entitySpawnerDetails.Prefab, transform.position, transform.rotation, transform);
+            GameObject clone = Instantiate(entitySpawnerDetails.Prefab, Vector3.zero, Quaternion.identity, entityParent);
+            clone.transform.localPosition = entitySpawnerDetails.GetSpawnPoint();
         }
     }
 }
