@@ -1,91 +1,93 @@
 using System;
-using UnityEngine;
-using UnityEngine.InputSystem;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class MouseController : MonoBehaviour
+namespace UserControls
 {
-    private static bool ShiftHeld => Keyboard.current.shiftKey.isPressed;
-    private static bool ControlHeld => Keyboard.current.ctrlKey.isPressed;
-    private static bool LeftClick => Mouse.current.leftButton.wasReleasedThisFrame;
-    private static bool RightClick => Mouse.current.rightButton.wasReleasedThisFrame;
+    public class MouseController : MonoBehaviour
+    {
+        private static bool ShiftHeld => Keyboard.current.shiftKey.isPressed;
+        private static bool ControlHeld => Keyboard.current.ctrlKey.isPressed;
+        private static bool LeftClick => Mouse.current.leftButton.wasReleasedThisFrame;
+        private static bool RightClick => Mouse.current.rightButton.wasReleasedThisFrame;
     
-    private Camera mainCamera;
+        private Camera mainCamera;
 
-    private void Start()
-    {
-        mainCamera = Camera.main;
-    }
-
-    private void Update()
-    {
-        if (LeftClick || RightClick)
+        private void Start()
         {
-            List<IClickable> clickables = GetClickables().ToList();
-            Action<IClickable> action = GetDelegate();
-            clickables.ForEach(action);
-        }
-    }
-
-    private IEnumerable<IClickable> GetClickables()
-    {
-        Vector2 mousePosition = Mouse.current.position.ReadValue();
-        Ray ray = mainCamera.ScreenPointToRay(mousePosition);
-        IEnumerable<IClickable> clickables = null;
-
-        if (Physics.Raycast(ray, out RaycastHit hit))
-        {
-            clickables = hit.collider.GetComponents<IClickable>();
+            mainCamera = Camera.main;
         }
 
-        return clickables ?? Array.Empty<IClickable>();
-
-    }
-
-    private static Action<IClickable> GetDelegate()
-    {
-        if (LeftClick && ShiftHeld && ControlHeld)
+        private void Update()
         {
-            return c => c.OnLeftShiftControlClick();
+            if (LeftClick || RightClick)
+            {
+                List<IClickable> clickables = GetClickables().ToList();
+                Action<IClickable> action = GetDelegate();
+                clickables.ForEach(action);
+            }
         }
 
-        if (LeftClick && ShiftHeld)
+        private IEnumerable<IClickable> GetClickables()
         {
-            return c => c.OnLeftShiftClick();
+            Vector2 mousePosition = Mouse.current.position.ReadValue();
+            Ray ray = mainCamera.ScreenPointToRay(mousePosition);
+            IEnumerable<IClickable> clickables = null;
+
+            if (Physics.Raycast(ray, out RaycastHit hit))
+            {
+                clickables = hit.collider.GetComponents<IClickable>();
+            }
+
+            return clickables ?? Array.Empty<IClickable>();
         }
 
-        if (LeftClick && ControlHeld)
+        private static Action<IClickable> GetDelegate()
         {
-            return c => c.OnLeftControlClick();
-        }
+            if (LeftClick && ShiftHeld && ControlHeld)
+            {
+                return c => c.OnLeftShiftControlClick();
+            }
 
-        if (LeftClick)
-        {
-            return (c => c.OnLeftClick());
-        }
+            if (LeftClick && ShiftHeld)
+            {
+                return c => c.OnLeftShiftClick();
+            }
 
-        if (RightClick && ShiftHeld && ControlHeld)
-        {
-            return c => c.OnRightShiftControlClick();
-        }
+            if (LeftClick && ControlHeld)
+            {
+                return c => c.OnLeftControlClick();
+            }
 
-        if (RightClick && ShiftHeld)
-        {
-            return c => c.OnRightShiftClick();
-        }
+            if (LeftClick)
+            {
+                return (c => c.OnLeftClick());
+            }
 
-        if (RightClick && ControlHeld)
-        {
-            return c => c.OnRightControlClick();
-        }
+            if (RightClick && ShiftHeld && ControlHeld)
+            {
+                return c => c.OnRightShiftControlClick();
+            }
 
-        if (RightClick)
-        {
-            return (c => c.OnRightClick());
-        }
+            if (RightClick && ShiftHeld)
+            {
+                return c => c.OnRightShiftClick();
+            }
 
-        return c => { Debug.LogWarning("This click combination is not implemented"); };
+            if (RightClick && ControlHeld)
+            {
+                return c => c.OnRightControlClick();
+            }
+
+            if (RightClick)
+            {
+                return (c => c.OnRightClick());
+            }
+
+            return c => { Debug.LogWarning("This click combination is not implemented"); };
+        }
     }
 }
 

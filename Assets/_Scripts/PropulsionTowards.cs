@@ -18,7 +18,6 @@ public class PropulsionTowards : PropulsionSystem
     protected new void FixedUpdate()
     {
         Vector3 direction = target.position - transform.position;
-        Debug.Log(transform.position);
         Vector3 newRot = Quaternion.LookRotation(direction).eulerAngles;
         Vector3 currentRot = transform.rotation.eulerAngles;
         newRot = new Vector3
