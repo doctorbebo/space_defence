@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 56377335376996965}
   serializedVersion: 2
   m_LocalRotation: {x: 0.32995006, y: -0, z: -0, w: 0.9439984}
-  m_LocalPosition: {x: 0, y: 7.21, z: -8.8}
+  m_LocalPosition: {x: 0, y: 10.51, z: -12.93}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -131,12 +131,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    quality: 3
-    frameInfluence: 0.1
-    jitterScale: 1
-    mipBias: 0
-    varianceClampScale: 0.9
-    contrastAdaptiveSharpening: 0
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
 --- !u!1 &450946857352836923
 GameObject:
   m_ObjectHideFlags: 0
@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 73144085926494062}
   - component: {fileID: 6744658594614449944}
   - component: {fileID: 5889284312478303329}
+  - component: {fileID: 589135086206531352}
   m_Layer: 0
   m_Name: Camera Controller
   m_TagString: Untagged
@@ -197,3 +198,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386ebd8df6ba946369bd5c4a3bc94626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &589135086206531352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 450946857352836923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e52a378a303e42b5b95f8b381d1c0c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraTran: {fileID: 812096318959421781}
+  zoomSpeed: 13
+  zoomSmooth: 0.2
+  minZoom: 8
+  maxZoom: 20
