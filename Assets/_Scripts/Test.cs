@@ -1,22 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using _Core;
+using Managers;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Test : MonoBehaviour, IClickable
 {
-    public MinMaxFloat testValue;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        print(testValue.min);
-        print(testValue.max);
-    }
-
+    public IntVariable variable;
+    
     // Update is called once per frame
     void Update()
     {
-        print(testValue.Random);
+        if (Keyboard.current.numpadPlusKey.wasPressedThisFrame)
+        {
+            variable.Value += 100;
+        }
+        
+        if (Keyboard.current.numpadMinusKey.wasPressedThisFrame)
+        {
+            variable.Value -= 100;
+        }
     }
 }
